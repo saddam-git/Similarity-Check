@@ -1,0 +1,51 @@
+{% extends "_base.html" %}
+{% block page_content %}
+
+
+{% if current_user.is_authenticated %}
+           <p>Welcome!</p>
+           <p>You are <span style="color:green">authenticated</span></p>
+      {% else %}
+       
+      <p>You are <span style="color:red">not authenticated</span>:</p>
+      {% endif %}
+<br />
+      <div class="jumbotron">
+       <h1>Compare two documents </h1>
+        {% if current_user.is_authenticated %} 
+          <p><a class="btn btn-lg btn-success" href="/compare" role="button">Click here</a></p>
+        {% else %}
+           <p><a class="btn btn-lg btn-success" href="/register" role="button">Register Now</a></p>
+        {% endif %}
+      </div>
+
+        
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+
+          <h4><font face ="Palatino">Sometimes we want to compare two files   to check the duplicate content between them. It is quite possible when we view those two files they look totally different from each other but according to the content those documents might have a lot of similarity in them. </font></h4>
+
+
+
+
+
+          <h4><font face ="Palatino">Our text comparison search software supports   type of document type of .txt files. This comparison search tool will check duplicate content according to your input values. If you want to check plagiarism for an article, assignment or for a paper you might need to use this similarity checker.</font></h4>
+
+        </div>
+
+        <div class="col-lg-6">
+            <h4> <font face ="Palatino">This tool helps you to compare two documents  to find out the plagiarized content. You can compare txt files  for similarity check. By using plagiarism comparison search tool you can easily compare two documents for duplicate content .</font> </h4>
+
+
+
+          <h4><font face ="Palatino">When we talk about checking similarity we only compare two files or articles between them. Comparing them with each other does not mean that your content is 100% plagiarism free, it means that text is not matched or matched with other specific document . It could be useful when you want to check assignments of your students on same topic, etc.</font></h4>
+
+
+        </div>
+      </div>
+
+
+
+
+{% endblock %}
