@@ -1,0 +1,26 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+ 
+
+ 
+ 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='jumbotron-narrow.css')}}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+{% endblock %}
+ 
+
+{% block content %}
+     
+<p>Hi! Somobody requested a password reset for the account {{ username }}.</p>
+<p>Click on the following link to reset your password:</p>
+<p><a href="{{ reset_url }}">{{ reset_url }}</a></p>
+<p>If you didn't request it, you can ignore this email.</p>
+<br />
+<p>Cheers!</p>
+         
+       
+{% endblock %}
+
