@@ -1,0 +1,81 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Similarity check{% endblock %}
+ 
+ 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('static', filename='jumbotron-narrow.css')}}">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
+{% endblock %}
+ 
+
+{% block content %}
+    <div class="container">
+      
+    <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Home</a></li>
+            <li role="presentation"><a href="/profile">Profile</a></li>
+            <li role="presentation"><a href="/logout">Logout</a></li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Similarity Check</h3>
+      </div>
+
+     
+      
+
+       <div class="row">
+       <div class="col-md-3"></div>
+        <div class="col-md-6"> 
+
+        {% for message in get_flashed_messages() %}
+         <div class="alert alert-warning">
+           <button type="button" class="close" data-dismiss="alert">&times;</button>
+           {{ message }}
+        </div>
+    {% endfor %}
+
+        
+        
+
+
+        <h4 class="form-signin-heading">Check Similarity only for (.txt) files </h4>
+
+         <form action = "http://localhost:5000/compare" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file1" />
+         <br>
+         <input type = "file" name = "file2" />
+         {% if t %}
+         {% if p >=0 %}
+         <h4><font face ="Courier" color="green">File {{fname1}} and {{fname2}} are  {{p}}% Similar</font></h4>
+         {% endif %}
+         {% endif %}
+         <br>
+         <button class="btn btn-lg btn-primary btn-block" type="submit">Check</button>
+      </form>
+
+
+        
+      
+        
+      </div>
+      </div>
+      
+       
+
+        
+
+      <br>
+
+      <footer class="footer">
+        <p>&copy; 2017 Company, Inc.</p>
+      </footer>
+
+    </div> <!-- /container -->
+{% endblock %}
+
